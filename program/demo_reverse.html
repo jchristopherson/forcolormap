@@ -1,0 +1,1121 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran library for colormaps">
+    <meta name="author" content="Vincent Magnin,
+Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>demo_reverse &ndash; ForColormap</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForColormap <small>0.9.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>demo_reverse      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="17.3% of total for programs.">24 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/demo_reverse.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/demo_reverse.f90.html'>demo_reverse.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">demo_reverse</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/demo_reverse.html#variable-cmap~3">cmap</a>
+            <a class="list-group-item" href="../program/demo_reverse.html#variable-custom_cmap">custom_cmap</a>
+            <a class="list-group-item" href="../program/demo_reverse.html#variable-i~19">i</a>
+            <a class="list-group-item" href="../program/demo_reverse.html#variable-my_colormap">my_colormap</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/demo_reverse.html#src">demo_reverse</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">forcolormap_utils</li>
+                  <li class="list-inline-item"><a href='../module/forcolormap.html'>forcolormap</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~demo_reverse~~UsesGraph Pages: 1 -->
+<svg id="programdemo_reverseUsesGraph" width="641pt" height="122pt"
+ viewBox="0.00 0.00 641.00 121.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~demo_reverse~~UsesGraph" class="graph" transform="scale(0.89 0.89) rotate(0) translate(4 133)">
+<title>program~~demo_reverse~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-133 717,-133 717,4 -4,4"/>
+<!-- program~demo_reverse -->
+<g id="program~~demo_reverse~~UsesGraph_node1" class="node">
+<title>program~demo_reverse</title>
+<polygon fill="none" stroke="black" points="713,-108 625,-108 625,-84 713,-84 713,-108"/>
+<text text-anchor="middle" x="669" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">demo_reverse</text>
+</g>
+<!-- forcolormap_utils -->
+<g id="program~~demo_reverse~~UsesGraph_node2" class="node">
+<title>forcolormap_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="589,-129 484,-129 484,-105 589,-105 589,-129"/>
+<text text-anchor="middle" x="536.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap_utils</text>
+</g>
+<!-- program~demo_reverse&#45;&gt;forcolormap_utils -->
+<g id="program~~demo_reverse~~UsesGraph_edge1" class="edge">
+<title>program~demo_reverse&#45;&gt;forcolormap_utils</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M624.91,-102.93C616.69,-104.26 607.94,-105.66 599.27,-107.06"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="598.49,-103.64 589.17,-108.68 599.6,-110.55 598.49,-103.64"/>
+</g>
+<!-- module~forcolormap -->
+<g id="program~~demo_reverse~~UsesGraph_node3" class="node">
+<title>module~forcolormap</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node3"><a xlink:href="../module/forcolormap.html" xlink:title="forcolormap">
+<polygon fill="#337ab7" stroke="#337ab7" points="575.5,-87 497.5,-87 497.5,-63 575.5,-63 575.5,-87"/>
+<text text-anchor="middle" x="536.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;module~forcolormap -->
+<g id="program~~demo_reverse~~UsesGraph_edge2" class="edge">
+<title>program~demo_reverse&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M624.91,-89.07C612.37,-87.05 598.6,-84.83 585.76,-82.77"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="586.15,-79.28 575.72,-81.15 585.03,-86.19 586.15,-79.28"/>
+</g>
+<!-- module~colormap_parameters -->
+<g id="program~~demo_reverse~~UsesGraph_node4" class="node">
+<title>module~colormap_parameters</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node4"><a xlink:href="../module/colormap_parameters.html" xlink:title="colormap_parameters">
+<polygon fill="#337ab7" stroke="#337ab7" points="261,-87 130,-87 130,-63 261,-63 261,-87"/>
+<text text-anchor="middle" x="195.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">colormap_parameters</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~colormap_parameters -->
+<g id="program~~demo_reverse~~UsesGraph_edge3" class="edge">
+<title>module~forcolormap&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M503.87,-87.08C497.23,-89.84 490.32,-92.89 484,-96 467.38,-104.18 465.88,-112.17 448,-117 383.21,-134.51 362.8,-130.2 297,-117 272.62,-112.11 246.77,-101.16 227.4,-91.67"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="228.94,-88.53 218.44,-87.16 225.8,-94.79 228.94,-88.53"/>
+</g>
+<!-- module~matplotlib_colormaps -->
+<g id="program~~demo_reverse~~UsesGraph_node5" class="node">
+<title>module~matplotlib_colormaps</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node5"><a xlink:href="../module/matplotlib_colormaps.html" xlink:title="matplotlib_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="436.5,-108 308.5,-108 308.5,-84 436.5,-84 436.5,-108"/>
+<text text-anchor="middle" x="372.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">matplotlib_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~matplotlib_colormaps -->
+<g id="program~~demo_reverse~~UsesGraph_edge4" class="edge">
+<title>module~forcolormap&#45;&gt;module~matplotlib_colormaps</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M497.11,-79.98C482.01,-81.93 464.16,-84.25 446.78,-86.5"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="446.1,-83.06 436.63,-87.82 447,-90 446.1,-83.06"/>
+</g>
+<!-- module~miscellaneous_colormaps -->
+<g id="program~~demo_reverse~~UsesGraph_node6" class="node">
+<title>module~miscellaneous_colormaps</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node6"><a xlink:href="../module/miscellaneous_colormaps.html" xlink:title="miscellaneous_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="448,-66 297,-66 297,-42 448,-42 448,-66"/>
+<text text-anchor="middle" x="372.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">miscellaneous_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~miscellaneous_colormaps -->
+<g id="program~~demo_reverse~~UsesGraph_edge5" class="edge">
+<title>module~forcolormap&#45;&gt;module~miscellaneous_colormaps</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M497.11,-70.02C485.29,-68.49 471.77,-66.74 458.12,-64.97"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="458.55,-61.5 448.18,-63.68 457.65,-68.44 458.55,-61.5"/>
+</g>
+<!-- module~scientific_colour_maps -->
+<g id="program~~demo_reverse~~UsesGraph_node7" class="node">
+<title>module~scientific_colour_maps</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node7"><a xlink:href="../module/scientific_colour_maps.html" xlink:title="scientific_colour_maps">
+<polygon fill="#337ab7" stroke="#337ab7" points="439,-24 306,-24 306,0 439,0 439,-24"/>
+<text text-anchor="middle" x="372.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scientific_colour_maps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~scientific_colour_maps -->
+<g id="program~~demo_reverse~~UsesGraph_edge6" class="edge">
+<title>module~forcolormap&#45;&gt;module~scientific_colour_maps</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M512.94,-62.84C495.55,-53.79 470.7,-41.57 448,-33 442.44,-30.9 436.58,-28.9 430.69,-27.03"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="431.38,-23.58 420.8,-24 429.33,-30.27 431.38,-23.58"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~demo_reverse~~UsesGraph_node8" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~demo_reverse~~UsesGraph_node8"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-87 0,-87 0,-63 94,-63 94,-87"/>
+<text text-anchor="middle" x="47" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~colormap_parameters&#45;&gt;iso_fortran_env -->
+<g id="program~~demo_reverse~~UsesGraph_edge7" class="edge">
+<title>module~colormap_parameters&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.82,-75C121.41,-75 112.85,-75 104.59,-75"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.32,-71.5 94.32,-75 104.32,-78.5 104.32,-71.5"/>
+</g>
+<!-- module~matplotlib_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="program~~demo_reverse~~UsesGraph_edge8" class="edge">
+<title>module~matplotlib_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M308.32,-88.42C296.31,-86.98 283.64,-85.46 271.31,-83.98"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="271.4,-80.46 261.06,-82.75 270.57,-87.41 271.4,-80.46"/>
+</g>
+<!-- module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="program~~demo_reverse~~UsesGraph_edge9" class="edge">
+<title>module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M296.78,-62.97C288.23,-63.99 279.52,-65.04 270.97,-66.06"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="270.55,-62.59 261.04,-67.25 271.39,-69.54 270.55,-62.59"/>
+</g>
+<!-- module~scientific_colour_maps&#45;&gt;module~colormap_parameters -->
+<g id="program~~demo_reverse~~UsesGraph_edge10" class="edge">
+<title>module~scientific_colour_maps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M325.52,-24.02C316.03,-26.76 306.14,-29.82 297,-33 275.15,-40.61 251.24,-50.54 232.22,-58.83"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="230.77,-55.64 223.03,-62.88 233.59,-62.05 230.77,-55.64"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramdemo_reverseUsesGraph = svgPanZoom('#programdemo_reverseUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>This example demonstrates the use of the 'reverse' optional argument to
+reverse the order of a colormap.
+You can create your own colormap using that array. The name of your
+colormap must conform to the max length defined in colormap_parameters.f90
+Use the create() method instead of the set() method.
+We create PPM files (binary encoded by default) for each built-in colormap.
+The built-in z=f(x,y) test function is in the [0, 2] range:
+Cubehelix can also accept other parameters (varargs array):</p>
+<p>Or you can download it from a .txt file.
+Use the load() method instead of the set() method.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~demo_reverse~~CallsGraph Pages: 1 -->
+<svg id="programdemo_reverseCallsGraph" width="641pt" height="441pt"
+ viewBox="0.00 0.00 641.00 441.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~demo_reverse~~CallsGraph" class="graph" transform="scale(0.63 0.63) rotate(0) translate(4 692)">
+<title>program~~demo_reverse~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-692 1007,-692 1007,4 -4,4"/>
+<!-- program~demo_reverse -->
+<g id="program~~demo_reverse~~CallsGraph_node1" class="node">
+<title>program~demo_reverse</title>
+<polygon fill="none" stroke="black" points="88,-423 0,-423 0,-399 88,-399 88,-423"/>
+<text text-anchor="middle" x="44" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50">demo_reverse</text>
+</g>
+<!-- proc~create -->
+<g id="program~~demo_reverse~~CallsGraph_node2" class="node">
+<title>proc~create</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node2"><a xlink:href="../proc/create.html" xlink:title="Colormap%create">
+<polygon fill="#d9534f" stroke="#d9534f" points="471,-604 362,-604 362,-580 471,-580 471,-604"/>
+<text text-anchor="middle" x="416.5" y="-589.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%create</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~create -->
+<g id="program~~demo_reverse~~CallsGraph_edge1" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~create</title>
+<path fill="none" stroke="#ff0000" d="M57.86,-423.15C72.84,-436.84 98.77,-459.11 124,-474 203.73,-521.05 305.72,-557.54 365.51,-576.82"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="364.5,-580.17 375.09,-579.88 366.63,-573.5 364.5,-580.17"/>
+</g>
+<!-- proc~get_levels -->
+<g id="program~~demo_reverse~~CallsGraph_node3" class="node">
+<title>proc~get_levels</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node3"><a xlink:href="../proc/get_levels.html" xlink:title="Colormap%get_levels">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="278.5,-423 150.5,-423 150.5,-399 278.5,-399 278.5,-423"/>
+<text text-anchor="middle" x="214.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_levels</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~get_levels -->
+<g id="program~~demo_reverse~~CallsGraph_edge2" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~get_levels</title>
+<path fill="none" stroke="#ff0000" d="M88.39,-411C104.12,-411 122.36,-411 139.97,-411"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="140.24,-414.5 150.24,-411 140.24,-407.5 140.24,-414.5"/>
+</g>
+<!-- proc~get_name -->
+<g id="program~~demo_reverse~~CallsGraph_node4" class="node">
+<title>proc~get_name</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node4"><a xlink:href="../proc/get_name.html" xlink:title="Colormap%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="278.5,-381 150.5,-381 150.5,-357 278.5,-357 278.5,-381"/>
+<text text-anchor="middle" x="214.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_name</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~get_name -->
+<g id="program~~demo_reverse~~CallsGraph_edge3" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0000" d="M88.4,-399.22C99.95,-396.15 112.44,-392.89 124,-390 132.76,-387.81 142.01,-385.56 151.11,-383.39"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="151.98,-386.78 160.91,-381.07 150.37,-379.97 151.98,-386.78"/>
+</g>
+<!-- proc~load -->
+<g id="program~~demo_reverse~~CallsGraph_node5" class="node">
+<title>proc~load</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node5"><a xlink:href="../proc/load.html" xlink:title="Colormap%load">
+<polygon fill="#d9534f" stroke="#d9534f" points="465.5,-646 367.5,-646 367.5,-622 465.5,-622 465.5,-646"/>
+<text text-anchor="middle" x="416.5" y="-631.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%load</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~load -->
+<g id="program~~demo_reverse~~CallsGraph_edge4" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~load</title>
+<path fill="none" stroke="#ff0000" d="M50.13,-423.03C60.65,-446.42 86.88,-498.28 124,-528 193.29,-583.47 294.19,-611.45 357.28,-624.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="356.96,-627.85 367.45,-626.37 358.32,-620.99 356.96,-627.85"/>
+</g>
+<!-- proc~set -->
+<g id="program~~demo_reverse~~CallsGraph_node6" class="node">
+<title>proc~set</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node6"><a xlink:href="../proc/set.html" xlink:title="Colormap%set">
+<polygon fill="#d9534f" stroke="#d9534f" points="260,-465 169,-465 169,-441 260,-441 260,-465"/>
+<text text-anchor="middle" x="214.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%set</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~set -->
+<g id="program~~demo_reverse~~CallsGraph_edge5" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~set</title>
+<path fill="none" stroke="#ff0000" d="M88.4,-422.78C99.95,-425.85 112.44,-429.11 124,-432 135.26,-434.82 147.34,-437.73 158.87,-440.45"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="158.29,-443.91 168.82,-442.79 159.89,-437.09 158.29,-443.91"/>
+</g>
+<!-- proc~write_ppm_colorbar -->
+<g id="program~~demo_reverse~~CallsGraph_node7" class="node">
+<title>proc~write_ppm_colorbar</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node7"><a xlink:href="../proc/write_ppm_colorbar.html" xlink:title="Colormap%write_ppm_colorbar">
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-192 124,-192 124,-168 305,-168 305,-192"/>
+<text text-anchor="middle" x="214.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%write_ppm_colorbar</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;proc~write_ppm_colorbar -->
+<g id="program~~demo_reverse~~CallsGraph_edge6" class="edge">
+<title>program~demo_reverse&#45;&gt;proc~write_ppm_colorbar</title>
+<path fill="none" stroke="#ff0000" d="M53.82,-398.91C81.11,-361.49 164.38,-247.34 198.59,-200.44"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="201.5,-202.39 204.56,-192.25 195.84,-198.27 201.5,-202.39"/>
+</g>
+<!-- test_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node8" class="node">
+<title>test_colormap</title>
+<polygon fill="#777777" stroke="#777777" points="258.5,-150 170.5,-150 170.5,-126 258.5,-126 258.5,-150"/>
+<text text-anchor="middle" x="214.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_colormap</text>
+</g>
+<!-- program~demo_reverse&#45;&gt;test_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge7" class="edge">
+<title>program~demo_reverse&#45;&gt;test_colormap</title>
+<path fill="none" stroke="#ff0000" d="M44.87,-398.84C45.15,-358.24 51.79,-226.1 124,-159 133.88,-149.82 146.98,-144.42 160.1,-141.29"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="160.96,-144.69 170.09,-139.32 159.6,-137.82 160.96,-144.69"/>
+</g>
+<!-- proc~check -->
+<g id="program~~demo_reverse~~CallsGraph_node11" class="node">
+<title>proc~check</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node11"><a xlink:href="../proc/check.html" xlink:title="Colormap%check">
+<polygon fill="#d9534f" stroke="#d9534f" points="641.5,-625 535.5,-625 535.5,-601 641.5,-601 641.5,-625"/>
+<text text-anchor="middle" x="588.5" y="-610.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%check</text>
+</a>
+</g>
+</g>
+<!-- proc~create&#45;&gt;proc~check -->
+<g id="program~~demo_reverse~~CallsGraph_edge8" class="edge">
+<title>proc~create&#45;&gt;proc~check</title>
+<path fill="none" stroke="#ff0000" d="M471.29,-598.64C488.37,-600.75 507.39,-603.1 525.03,-605.28"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="524.87,-608.79 535.22,-606.54 525.73,-601.84 524.87,-608.79"/>
+</g>
+<!-- proc~reverse -->
+<g id="program~~demo_reverse~~CallsGraph_node19" class="node">
+<title>proc~reverse</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node19"><a xlink:href="../proc/reverse.html" xlink:title="Colormap%reverse">
+<polygon fill="#d9534f" stroke="#d9534f" points="646,-583 531,-583 531,-559 646,-559 646,-583"/>
+<text text-anchor="middle" x="588.5" y="-568.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%reverse</text>
+</a>
+</g>
+</g>
+<!-- proc~create&#45;&gt;proc~reverse -->
+<g id="program~~demo_reverse~~CallsGraph_edge9" class="edge">
+<title>proc~create&#45;&gt;proc~reverse</title>
+<path fill="none" stroke="#ff0000" d="M471.29,-585.36C487,-583.42 504.36,-581.27 520.76,-579.24"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="521.34,-582.7 530.83,-578 520.48,-575.75 521.34,-582.7"/>
+</g>
+<!-- proc~load&#45;&gt;proc~check -->
+<g id="program~~demo_reverse~~CallsGraph_edge10" class="edge">
+<title>proc~load&#45;&gt;proc~check</title>
+<path fill="none" stroke="#00ff91" d="M465.76,-628.04C484.23,-625.76 505.58,-623.12 525.18,-620.7"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="525.75,-624.15 535.25,-619.45 524.89,-617.21 525.75,-624.15"/>
+</g>
+<!-- proc~load&#45;&gt;proc~reverse -->
+<g id="program~~demo_reverse~~CallsGraph_edge11" class="edge">
+<title>proc~load&#45;&gt;proc~reverse</title>
+<path fill="none" stroke="#00ff91" d="M465.81,-622.31C474.66,-619.63 483.71,-616.52 492,-613 509.05,-605.76 511.19,-599.78 528,-592 532.02,-590.14 536.26,-588.34 540.54,-586.63"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="541.84,-589.88 549.93,-583.05 539.34,-583.34 541.84,-589.88"/>
+</g>
+<!-- proc~set&#45;&gt;proc~create -->
+<g id="program~~demo_reverse~~CallsGraph_edge13" class="edge">
+<title>proc~set&#45;&gt;proc~create</title>
+<path fill="none" stroke="#0091ff" d="M231.16,-465.22C249.4,-479.66 280.2,-504.66 305,-528 321.94,-543.94 321.47,-553.37 341,-566 347.01,-569.89 353.67,-573.27 360.47,-576.19"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="359.18,-579.45 369.77,-579.9 361.77,-572.95 359.18,-579.45"/>
+</g>
+<!-- proc~set&#45;&gt;proc~check -->
+<g id="program~~demo_reverse~~CallsGraph_edge12" class="edge">
+<title>proc~set&#45;&gt;proc~check</title>
+<path fill="none" stroke="#0091ff" d="M231.72,-465.06C254.87,-481.78 299.23,-511.96 341,-530 404.84,-557.57 427.86,-544.14 492,-571 509.09,-578.16 511.19,-584.22 528,-592 532.02,-593.86 536.26,-595.66 540.54,-597.37"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="539.34,-600.66 549.93,-600.95 541.84,-594.12 539.34,-600.66"/>
+</g>
+<!-- proc~cubehelix_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node13" class="node">
+<title>proc~cubehelix_colormap</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node13"><a xlink:href="../proc/cubehelix_colormap.html" xlink:title="cubehelix_colormap">
+<polygon fill="#d9534f" stroke="#d9534f" points="477,-486 356,-486 356,-462 477,-462 477,-486"/>
+<text text-anchor="middle" x="416.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cubehelix_colormap</text>
+</a>
+</g>
+</g>
+<!-- proc~set&#45;&gt;proc~cubehelix_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge14" class="edge">
+<title>proc~set&#45;&gt;proc~cubehelix_colormap</title>
+<path fill="none" stroke="#0091ff" d="M260.38,-457.71C285.51,-460.35 317.4,-463.7 345.71,-466.67"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="345.66,-470.19 355.97,-467.75 346.39,-463.22 345.66,-470.19"/>
+</g>
+<!-- proc~fire_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node14" class="node">
+<title>proc~fire_colormap</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node14"><a xlink:href="../proc/fire_colormap.html" xlink:title="fire_colormap">
+<polygon fill="#d9534f" stroke="#d9534f" points="459.5,-444 373.5,-444 373.5,-420 459.5,-420 459.5,-444"/>
+<text text-anchor="middle" x="416.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fire_colormap</text>
+</a>
+</g>
+</g>
+<!-- proc~set&#45;&gt;proc~fire_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge15" class="edge">
+<title>proc~set&#45;&gt;proc~fire_colormap</title>
+<path fill="none" stroke="#0091ff" d="M260.38,-448.29C290.94,-445.08 331.47,-440.82 363.44,-437.47"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="363.92,-440.94 373.5,-436.41 363.19,-433.97 363.92,-440.94"/>
+</g>
+<!-- proc~inv_rainbow_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node17" class="node">
+<title>proc~inv_rainbow_colormap</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node17"><a xlink:href="../proc/inv_rainbow_colormap.html" xlink:title="inv_rainbow_colormap">
+<polygon fill="#d9534f" stroke="#d9534f" points="483,-402 350,-402 350,-378 483,-378 483,-402"/>
+<text text-anchor="middle" x="416.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">inv_rainbow_colormap</text>
+</a>
+</g>
+</g>
+<!-- proc~set&#45;&gt;proc~inv_rainbow_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge16" class="edge">
+<title>proc~set&#45;&gt;proc~inv_rainbow_colormap</title>
+<path fill="none" stroke="#0091ff" d="M260,-445.29C274.62,-442.04 290.77,-437.67 305,-432 322.21,-425.14 323.95,-418.24 341,-411 345.95,-408.9 351.17,-406.94 356.46,-405.14"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="357.56,-408.46 366,-402.05 355.41,-401.8 357.56,-408.46"/>
+</g>
+<!-- proc~rainbow_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node18" class="node">
+<title>proc~rainbow_colormap</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node18"><a xlink:href="../proc/rainbow_colormap.html" xlink:title="rainbow_colormap">
+<polygon fill="#d9534f" stroke="#d9534f" points="472.5,-360 360.5,-360 360.5,-336 472.5,-336 472.5,-360"/>
+<text text-anchor="middle" x="416.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rainbow_colormap</text>
+</a>
+</g>
+</g>
+<!-- proc~set&#45;&gt;proc~rainbow_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge17" class="edge">
+<title>proc~set&#45;&gt;proc~rainbow_colormap</title>
+<path fill="none" stroke="#0091ff" d="M260.45,-449.74C275.75,-446.84 292.21,-441.54 305,-432 330.85,-412.71 315.59,-388.85 341,-369 344.13,-366.56 347.52,-364.4 351.09,-362.49"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="352.63,-365.63 360.23,-358.25 349.68,-359.28 352.63,-365.63"/>
+</g>
+<!-- proc~set&#45;&gt;proc~reverse -->
+<g id="program~~demo_reverse~~CallsGraph_edge18" class="edge">
+<title>proc~set&#45;&gt;proc~reverse</title>
+<path fill="none" stroke="#0091ff" d="M249.99,-465.01C275.12,-473.65 310.05,-485.42 341,-495 407.66,-515.63 425.44,-517.04 492,-538 509.18,-543.41 527.95,-549.79 544.26,-555.49"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="543.47,-558.92 554.06,-558.94 545.79,-552.32 543.47,-558.92"/>
+</g>
+<!-- proc~zebra_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_node20" class="node">
+<title>proc~zebra_colormap</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node20"><a xlink:href="../proc/zebra_colormap.html" xlink:title="zebra_colormap">
+<polygon fill="#d9534f" stroke="#d9534f" points="466,-318 367,-318 367,-294 466,-294 466,-318"/>
+<text text-anchor="middle" x="416.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">zebra_colormap</text>
+</a>
+</g>
+</g>
+<!-- proc~set&#45;&gt;proc~zebra_colormap -->
+<g id="program~~demo_reverse~~CallsGraph_edge19" class="edge">
+<title>proc~set&#45;&gt;proc~zebra_colormap</title>
+<path fill="none" stroke="#0091ff" d="M260.13,-451.28C275.94,-448.58 292.81,-443.03 305,-432 341.58,-398.9 305.16,-360.9 341,-327 345.68,-322.58 351.21,-319.07 357.12,-316.3"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="358.64,-319.46 366.64,-312.52 356.06,-312.96 358.64,-319.46"/>
+</g>
+<!-- export_pnm -->
+<g id="program~~demo_reverse~~CallsGraph_node9" class="node">
+<title>export_pnm</title>
+<polygon fill="#777777" stroke="#777777" points="454.5,-24 378.5,-24 378.5,0 454.5,0 454.5,-24"/>
+<text text-anchor="middle" x="416.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">export_pnm</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;export_pnm -->
+<g id="program~~demo_reverse~~CallsGraph_edge20" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;export_pnm</title>
+<path fill="none" stroke="#4800ff" d="M292.66,-168C297.13,-165.5 301.3,-162.52 305,-159 347.16,-118.81 299.74,-74.11 341,-33 348.5,-25.52 358.45,-20.66 368.62,-17.51"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="369.56,-20.88 378.37,-14.99 367.81,-14.1 369.56,-20.88"/>
+</g>
+<!-- get_format -->
+<g id="program~~demo_reverse~~CallsGraph_node10" class="node">
+<title>get_format</title>
+<polygon fill="#777777" stroke="#777777" points="452,-276 381,-276 381,-252 452,-252 452,-276"/>
+<text text-anchor="middle" x="416.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_format</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;get_format -->
+<g id="program~~demo_reverse~~CallsGraph_edge21" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;get_format</title>
+<path fill="none" stroke="#4800ff" d="M236.7,-192.21C261.2,-205.95 303.04,-228.28 341,-243 350.58,-246.72 361.09,-250.09 371.12,-252.99"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="370.36,-256.41 380.93,-255.73 372.24,-249.67 370.36,-256.41"/>
+</g>
+<!-- proc~compute_rgb -->
+<g id="program~~demo_reverse~~CallsGraph_node12" class="node">
+<title>proc~compute_rgb</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node12"><a xlink:href="../proc/compute_rgb.html" xlink:title="Colormap%compute_RGB">
+<polygon fill="#d9534f" stroke="#d9534f" points="492,-234 341,-234 341,-210 492,-210 492,-234"/>
+<text text-anchor="middle" x="416.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%compute_RGB</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~compute_rgb -->
+<g id="program~~demo_reverse~~CallsGraph_edge22" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~compute_rgb</title>
+<path fill="none" stroke="#4800ff" d="M272.81,-192.04C296.35,-196.98 323.77,-202.74 348.25,-207.88"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="347.67,-211.33 358.18,-209.96 349.11,-204.48 347.67,-211.33"/>
+</g>
+<!-- proc~get_zmax -->
+<g id="program~~demo_reverse~~CallsGraph_node15" class="node">
+<title>proc~get_zmax</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node15"><a xlink:href="../proc/get_zmax.html" xlink:title="Colormap%get_zmax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="479.5,-192 353.5,-192 353.5,-168 479.5,-168 479.5,-192"/>
+<text text-anchor="middle" x="416.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_zmax</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~get_zmax -->
+<g id="program~~demo_reverse~~CallsGraph_edge23" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~get_zmax</title>
+<path fill="none" stroke="#4800ff" d="M305.26,-180C317.92,-180 330.8,-180 343.07,-180"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="343.22,-183.5 353.22,-180 343.22,-176.5 343.22,-183.5"/>
+</g>
+<!-- proc~get_zmin -->
+<g id="program~~demo_reverse~~CallsGraph_node16" class="node">
+<title>proc~get_zmin</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node16"><a xlink:href="../proc/get_zmin.html" xlink:title="Colormap%get_zmin">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="478,-150 355,-150 355,-126 478,-126 478,-150"/>
+<text text-anchor="middle" x="416.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_zmin</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~get_zmin -->
+<g id="program~~demo_reverse~~CallsGraph_edge24" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~get_zmin</title>
+<path fill="none" stroke="#4800ff" d="M272.81,-167.96C296.35,-163.02 323.77,-157.26 348.25,-152.12"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="349.11,-155.52 358.18,-150.04 347.67,-148.67 349.11,-155.52"/>
+</g>
+<!-- set_format -->
+<g id="program~~demo_reverse~~CallsGraph_node21" class="node">
+<title>set_format</title>
+<polygon fill="#777777" stroke="#777777" points="451.5,-108 381.5,-108 381.5,-84 451.5,-84 451.5,-108"/>
+<text text-anchor="middle" x="416.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_format</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;set_format -->
+<g id="program~~demo_reverse~~CallsGraph_edge25" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;set_format</title>
+<path fill="none" stroke="#4800ff" d="M286.09,-167.98C292.72,-165.53 299.14,-162.57 305,-159 326.01,-146.23 320.28,-130.24 341,-117 350.18,-111.13 361.02,-106.88 371.55,-103.8"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="372.69,-107.12 381.48,-101.19 370.92,-100.35 372.69,-107.12"/>
+</g>
+<!-- set_pnm -->
+<g id="program~~demo_reverse~~CallsGraph_node22" class="node">
+<title>set_pnm</title>
+<polygon fill="#777777" stroke="#777777" points="445.5,-66 387.5,-66 387.5,-42 445.5,-42 445.5,-66"/>
+<text text-anchor="middle" x="416.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_pnm</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;set_pnm -->
+<g id="program~~demo_reverse~~CallsGraph_edge26" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;set_pnm</title>
+<path fill="none" stroke="#4800ff" d="M291.31,-167.88C296.21,-165.42 300.84,-162.49 305,-159 336.11,-132.89 310.47,-101.79 341,-75 351.04,-66.19 364.52,-61.05 377.25,-58.07"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="378.09,-61.47 387.22,-56.11 376.73,-54.6 378.09,-61.47"/>
+</g>
+<!-- proc~get_levels~2 -->
+<g id="program~~demo_reverse~~CallsGraph_node23" class="node">
+<title>proc~get_levels~2</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node23"><a xlink:href="../proc/get_levels~2.html" xlink:title="Colormaps_info%get_levels">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="860,-688 701,-688 701,-664 860,-664 860,-688"/>
+<text text-anchor="middle" x="780.5" y="-673.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_levels</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_levels~2 -->
+<g id="program~~demo_reverse~~CallsGraph_edge27" class="edge">
+<title>proc~check&#45;&gt;proc~get_levels~2</title>
+<path fill="none" stroke="#ffda00" d="M613.32,-625.04C632.34,-634.27 659.87,-646.77 685,-655 692.24,-657.37 699.89,-659.56 707.56,-661.56"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="706.72,-664.96 717.27,-663.99 708.42,-658.17 706.72,-664.96"/>
+</g>
+<!-- proc~get_name~2 -->
+<g id="program~~demo_reverse~~CallsGraph_node24" class="node">
+<title>proc~get_name~2</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node24"><a xlink:href="../proc/get_name~2.html" xlink:title="Colormaps_info%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="860,-646 701,-646 701,-622 860,-622 860,-646"/>
+<text text-anchor="middle" x="780.5" y="-631.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_name</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_name~2 -->
+<g id="program~~demo_reverse~~CallsGraph_edge28" class="edge">
+<title>proc~check&#45;&gt;proc~get_name~2</title>
+<path fill="none" stroke="#ffda00" d="M641.67,-618.77C656.77,-620.44 673.7,-622.31 690.39,-624.15"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="690.4,-627.67 700.72,-625.29 691.17,-620.72 690.4,-627.67"/>
+</g>
+<!-- proc~get_ncolormaps -->
+<g id="program~~demo_reverse~~CallsGraph_node25" class="node">
+<title>proc~get_ncolormaps</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node25"><a xlink:href="../proc/get_ncolormaps.html" xlink:title="Colormaps_info%get_ncolormaps">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="876,-604 685,-604 685,-580 876,-580 876,-604"/>
+<text text-anchor="middle" x="780.5" y="-589.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_ncolormaps</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_ncolormaps -->
+<g id="program~~demo_reverse~~CallsGraph_edge29" class="edge">
+<title>proc~check&#45;&gt;proc~get_ncolormaps</title>
+<path fill="none" stroke="#ffda00" d="M641.67,-607.23C652.04,-606.09 663.26,-604.85 674.68,-603.59"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="675.19,-607.05 684.75,-602.47 674.42,-600.09 675.19,-607.05"/>
+</g>
+<!-- proc~set_all -->
+<g id="program~~demo_reverse~~CallsGraph_node27" class="node">
+<title>proc~set_all</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node27"><a xlink:href="../proc/set_all.html" xlink:title="Colormaps_info%set_all">
+<polygon fill="#d9534f" stroke="#d9534f" points="850,-562 711,-562 711,-538 850,-538 850,-562"/>
+<text text-anchor="middle" x="780.5" y="-547.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%set_all</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~set_all -->
+<g id="program~~demo_reverse~~CallsGraph_edge30" class="edge">
+<title>proc~check&#45;&gt;proc~set_all</title>
+<path fill="none" stroke="#ffda00" d="M627.07,-600.95C634.44,-598.25 642.04,-595.22 649,-592 665.81,-584.22 667.75,-577.76 685,-571 690.85,-568.71 697.01,-566.64 703.27,-564.77"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="704.45,-568.07 713.14,-562.01 702.56,-561.33 704.45,-568.07"/>
+</g>
+<!-- proc~get_rgb -->
+<g id="program~~demo_reverse~~CallsGraph_node26" class="node">
+<title>proc~get_rgb</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node26"><a xlink:href="../proc/get_rgb.html" xlink:title="Colormap%get_RGB">
+<polygon fill="#d9534f" stroke="#d9534f" points="649,-234 528,-234 528,-210 649,-210 649,-234"/>
+<text text-anchor="middle" x="588.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_RGB</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_rgb&#45;&gt;proc~get_rgb -->
+<g id="program~~demo_reverse~~CallsGraph_edge31" class="edge">
+<title>proc~compute_rgb&#45;&gt;proc~get_rgb</title>
+<path fill="none" stroke="#b6ff00" d="M492.06,-222C500.56,-222 509.2,-222 517.64,-222"/>
+<polygon fill="#b6ff00" stroke="#b6ff00" points="517.8,-225.5 527.8,-222 517.8,-218.5 517.8,-225.5"/>
+</g>
+<!-- proc~set_info -->
+<g id="program~~demo_reverse~~CallsGraph_node28" class="node">
+<title>proc~set_info</title>
+<g id="a_program~~demo_reverse~~CallsGraph_node28"><a xlink:href="../proc/set_info.html" xlink:title="table%set_info">
+<polygon fill="#d9534f" stroke="#d9534f" points="1003,-562 912,-562 912,-538 1003,-538 1003,-562"/>
+<text text-anchor="middle" x="957.5" y="-547.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">table%set_info</text>
+</a>
+</g>
+</g>
+<!-- proc~set_all&#45;&gt;proc~set_info -->
+<g id="program~~demo_reverse~~CallsGraph_edge32" class="edge">
+<title>proc~set_all&#45;&gt;proc~set_info</title>
+<path fill="none" stroke="#cc00ff" d="M850.16,-550C867.21,-550 885.25,-550 901.55,-550"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="901.97,-553.5 911.97,-550 901.97,-546.5 901.97,-553.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramdemo_reverseCallsGraph = svgPanZoom('#programdemo_reverseCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cmap~3"></span>
+              type(<a href='../type/colormap.html'>Colormap</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cmap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-custom_cmap"></span>
+              type(<a href='../type/colormap.html'>Colormap</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>custom_cmap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~19"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-my_colormap"></span>
+              integer,
+            </td>
+            <td>
+              dimension(0:7, 3)
+            </td>
+            <td>::</td>
+            <td><strong>my_colormap</strong></td>
+<td> =</td>
+                <td>reshape([198, 29, 32, 189, 21, 56, 171, 82, 150, 102, 81, 156, 38, 53, 108, 5, 65, 40, 221, 199, 44, 237, 191, 44], shape(my_colormap), order=[2, 1])</td>
+            <td>
+                <p>A discrete colormap with 8 levels, by @alozada, resembling the color
+changes in red cabbage (containing Anthocyanins) with pH:</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">demo_reverse</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forcolormap</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">Colormap</span><span class="p">,</span><span class="w"> </span><span class="n">colormaps_list</span><span class="p">,</span><span class="w"> </span><span class="n">wp</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forcolormap_utils</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">test_colormap</span>
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">Colormap</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cmap</span><span class="p">,</span><span class="w"> </span><span class="n">custom_cmap</span>
+
+<span class="w">    </span><span class="c">!&gt; A discrete colormap with 8 levels, by @alozada, resembling the color</span>
+<span class="w">    </span><span class="c">!&gt; changes in red cabbage (containing Anthocyanins) with pH:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">my_colormap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">198</span><span class="p">,</span><span class="w">    </span><span class="mi">29</span><span class="p">,</span><span class="w">    </span><span class="mi">32</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">189</span><span class="p">,</span><span class="w">    </span><span class="mi">21</span><span class="p">,</span><span class="w">    </span><span class="mi">56</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">171</span><span class="p">,</span><span class="w">    </span><span class="mi">82</span><span class="p">,</span><span class="w">   </span><span class="mi">150</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">102</span><span class="p">,</span><span class="w">    </span><span class="mi">81</span><span class="p">,</span><span class="w">   </span><span class="mi">156</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">         </span><span class="mi">38</span><span class="p">,</span><span class="w">    </span><span class="mi">53</span><span class="p">,</span><span class="w">   </span><span class="mi">108</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">          </span><span class="mi">5</span><span class="p">,</span><span class="w">    </span><span class="mi">65</span><span class="p">,</span><span class="w">    </span><span class="mi">40</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">221</span><span class="p">,</span><span class="w">   </span><span class="mi">199</span><span class="p">,</span><span class="w">    </span><span class="mi">44</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="mi">237</span><span class="p">,</span><span class="w">   </span><span class="mi">191</span><span class="p">,</span><span class="w">    </span><span class="mi">44</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="nb">shape</span><span class="p">(</span><span class="n">my_colormap</span><span class="p">),</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="c">!&gt; You can create your own colormap using that array. The name of your</span>
+<span class="w">    </span><span class="c">!&gt; colormap must conform to the max length defined in colormap_parameters.f90</span>
+<span class="w">    </span><span class="c">!&gt; Use the create() method instead of the set() method.</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;red_cabbage_reverse&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">,</span><span class="w"> </span><span class="n">my_colormap</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">colorbar</span><span class="p">(</span><span class="s1">&#39;red_cabbage_reverse_colorbar&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">test_colormap</span><span class="p">(</span><span class="n">custom_cmap</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;red_cabbage_reverse_test&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">!&gt; We create PPM files (binary encoded by default) for each built-in colormap.</span>
+<span class="w">    </span><span class="c">!&gt; The built-in z=f(x,y) test function is in the [0, 2] range:</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">colormaps_list</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">cmap</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">colormaps_list</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">cmap</span><span class="p">%</span><span class="n">colorbar</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">colormaps_list</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">//</span><span class="s1">&#39;_reverse_colorbar&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">test_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">colormaps_list</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">//</span><span class="s1">&#39;_reverse_test&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(&quot;Colormap &quot;, A30, &quot; has &quot;, I0, &quot; levels&quot;)&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">cmap</span><span class="p">%</span><span class="n">get_name</span><span class="p">()),</span><span class="w"> </span><span class="n">cmap</span><span class="p">%</span><span class="n">get_levels</span><span class="p">()</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">!&gt; Cubehelix can also accept other parameters (varargs array):</span>
+<span class="w">    </span><span class="k">call </span><span class="n">cmap</span><span class="p">%</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;cubehelix&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5_wp</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="p">],</span><span class="w"> </span><span class="n">reverse</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="c">! We change the name for the output test files:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">cmap</span><span class="p">%</span><span class="n">colorbar</span><span class="p">(</span><span class="s1">&#39;cubehelix_customized_reverse_colorbar&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">test_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cubehelix_customized_reverse_test&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">!&gt; Or you can download it from a .txt file.</span>
+<span class="w">    </span><span class="c">!&gt; Use the load() method instead of the set() method.</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;test_map_to_load.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">colorbar</span><span class="p">(</span><span class="s1">&#39;a_loaded_reverse_colorbar&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">test_colormap</span><span class="p">(</span><span class="n">custom_cmap</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a_loaded_reverse_colormap_test&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+
+<span class="k">end program </span><span class="n">demo_reverse</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForColormap
+ was developed by Vincent Magnin,
+Seyed Ali Ghasemi<br>              &copy; 2023-2024 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-12-12T18:14:34.250879+0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

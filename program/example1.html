@@ -1,0 +1,954 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran library for colormaps">
+    <meta name="author" content="Vincent Magnin,
+Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>example1 &ndash; ForColormap</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForColormap <small>0.9.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>example1      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="14.4% of total for programs.">20 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/example1.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/example1.f90.html'>example1.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">example1</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/example1.html#variable-custom_cmap~3">custom_cmap</a>
+            <a class="list-group-item" href="../program/example1.html#variable-ex1_colorbar">ex1_colorbar</a>
+            <a class="list-group-item" href="../program/example1.html#variable-ex1_colormap">ex1_colormap</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/example1.html#src">example1</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">forcolormap_utils</li>
+                  <li class="list-inline-item"><a href='../module/forcolormap.html'>forcolormap</a></li>
+                  <li class="list-inline-item">forimage</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~example1~~UsesGraph Pages: 1 -->
+<svg id="programexample1UsesGraph" width="641pt" height="164pt"
+ viewBox="0.00 0.00 641.00 164.38" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~example1~~UsesGraph" class="graph" transform="scale(0.92 0.92) rotate(0) translate(4 175)">
+<title>program~~example1~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-175 694,-175 694,4 -4,4"/>
+<!-- program~example1 -->
+<g id="program~~example1~~UsesGraph_node1" class="node">
+<title>program~example1</title>
+<polygon fill="none" stroke="black" points="690,-129 625,-129 625,-105 690,-105 690,-129"/>
+<text text-anchor="middle" x="657.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">example1</text>
+</g>
+<!-- forcolormap_utils -->
+<g id="program~~example1~~UsesGraph_node2" class="node">
+<title>forcolormap_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="589,-171 484,-171 484,-147 589,-147 589,-171"/>
+<text text-anchor="middle" x="536.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap_utils</text>
+</g>
+<!-- program~example1&#45;&gt;forcolormap_utils -->
+<g id="program~~example1~~UsesGraph_edge1" class="edge">
+<title>program~example1&#45;&gt;forcolormap_utils</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M624.92,-128.14C611.61,-132.84 595.88,-138.4 581.46,-143.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="580,-140.29 571.73,-146.92 582.33,-146.89 580,-140.29"/>
+</g>
+<!-- forimage -->
+<g id="program~~example1~~UsesGraph_node3" class="node">
+<title>forimage</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="567,-129 506,-129 506,-105 567,-105 567,-129"/>
+<text text-anchor="middle" x="536.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage</text>
+</g>
+<!-- program~example1&#45;&gt;forimage -->
+<g id="program~~example1~~UsesGraph_edge2" class="edge">
+<title>program~example1&#45;&gt;forimage</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M624.92,-117C610.38,-117 592.95,-117 577.5,-117"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="577.18,-113.5 567.18,-117 577.18,-120.5 577.18,-113.5"/>
+</g>
+<!-- module~forcolormap -->
+<g id="program~~example1~~UsesGraph_node4" class="node">
+<title>module~forcolormap</title>
+<g id="a_program~~example1~~UsesGraph_node4"><a xlink:href="../module/forcolormap.html" xlink:title="forcolormap">
+<polygon fill="#337ab7" stroke="#337ab7" points="575.5,-87 497.5,-87 497.5,-63 575.5,-63 575.5,-87"/>
+<text text-anchor="middle" x="536.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap</text>
+</a>
+</g>
+</g>
+<!-- program~example1&#45;&gt;module~forcolormap -->
+<g id="program~~example1~~UsesGraph_edge3" class="edge">
+<title>program~example1&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M624.92,-105.86C611.61,-101.16 595.88,-95.6 581.46,-90.52"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="582.33,-87.11 571.73,-87.08 580,-93.71 582.33,-87.11"/>
+</g>
+<!-- module~colormap_parameters -->
+<g id="program~~example1~~UsesGraph_node5" class="node">
+<title>module~colormap_parameters</title>
+<g id="a_program~~example1~~UsesGraph_node5"><a xlink:href="../module/colormap_parameters.html" xlink:title="colormap_parameters">
+<polygon fill="#337ab7" stroke="#337ab7" points="261,-87 130,-87 130,-63 261,-63 261,-87"/>
+<text text-anchor="middle" x="195.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">colormap_parameters</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~colormap_parameters -->
+<g id="program~~example1~~UsesGraph_edge4" class="edge">
+<title>module~forcolormap&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M503.87,-87.08C497.23,-89.84 490.32,-92.89 484,-96 467.38,-104.18 465.88,-112.17 448,-117 383.21,-134.51 362.8,-130.2 297,-117 272.62,-112.11 246.77,-101.16 227.4,-91.67"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="228.94,-88.53 218.44,-87.16 225.8,-94.79 228.94,-88.53"/>
+</g>
+<!-- module~matplotlib_colormaps -->
+<g id="program~~example1~~UsesGraph_node6" class="node">
+<title>module~matplotlib_colormaps</title>
+<g id="a_program~~example1~~UsesGraph_node6"><a xlink:href="../module/matplotlib_colormaps.html" xlink:title="matplotlib_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="436.5,-108 308.5,-108 308.5,-84 436.5,-84 436.5,-108"/>
+<text text-anchor="middle" x="372.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">matplotlib_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~matplotlib_colormaps -->
+<g id="program~~example1~~UsesGraph_edge5" class="edge">
+<title>module~forcolormap&#45;&gt;module~matplotlib_colormaps</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M497.11,-79.98C482.01,-81.93 464.16,-84.25 446.78,-86.5"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="446.1,-83.06 436.63,-87.82 447,-90 446.1,-83.06"/>
+</g>
+<!-- module~miscellaneous_colormaps -->
+<g id="program~~example1~~UsesGraph_node7" class="node">
+<title>module~miscellaneous_colormaps</title>
+<g id="a_program~~example1~~UsesGraph_node7"><a xlink:href="../module/miscellaneous_colormaps.html" xlink:title="miscellaneous_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="448,-66 297,-66 297,-42 448,-42 448,-66"/>
+<text text-anchor="middle" x="372.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">miscellaneous_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~miscellaneous_colormaps -->
+<g id="program~~example1~~UsesGraph_edge6" class="edge">
+<title>module~forcolormap&#45;&gt;module~miscellaneous_colormaps</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M497.11,-70.02C485.29,-68.49 471.77,-66.74 458.12,-64.97"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="458.55,-61.5 448.18,-63.68 457.65,-68.44 458.55,-61.5"/>
+</g>
+<!-- module~scientific_colour_maps -->
+<g id="program~~example1~~UsesGraph_node8" class="node">
+<title>module~scientific_colour_maps</title>
+<g id="a_program~~example1~~UsesGraph_node8"><a xlink:href="../module/scientific_colour_maps.html" xlink:title="scientific_colour_maps">
+<polygon fill="#337ab7" stroke="#337ab7" points="439,-24 306,-24 306,0 439,0 439,-24"/>
+<text text-anchor="middle" x="372.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scientific_colour_maps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~scientific_colour_maps -->
+<g id="program~~example1~~UsesGraph_edge7" class="edge">
+<title>module~forcolormap&#45;&gt;module~scientific_colour_maps</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M512.94,-62.84C495.55,-53.79 470.7,-41.57 448,-33 442.44,-30.9 436.58,-28.9 430.69,-27.03"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="431.38,-23.58 420.8,-24 429.33,-30.27 431.38,-23.58"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~example1~~UsesGraph_node9" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~example1~~UsesGraph_node9"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-87 0,-87 0,-63 94,-63 94,-87"/>
+<text text-anchor="middle" x="47" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~colormap_parameters&#45;&gt;iso_fortran_env -->
+<g id="program~~example1~~UsesGraph_edge8" class="edge">
+<title>module~colormap_parameters&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.82,-75C121.41,-75 112.85,-75 104.59,-75"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.32,-71.5 94.32,-75 104.32,-78.5 104.32,-71.5"/>
+</g>
+<!-- module~matplotlib_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="program~~example1~~UsesGraph_edge9" class="edge">
+<title>module~matplotlib_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M308.32,-88.42C296.31,-86.98 283.64,-85.46 271.31,-83.98"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="271.4,-80.46 261.06,-82.75 270.57,-87.41 271.4,-80.46"/>
+</g>
+<!-- module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="program~~example1~~UsesGraph_edge10" class="edge">
+<title>module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M296.78,-62.97C288.23,-63.99 279.52,-65.04 270.97,-66.06"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="270.55,-62.59 261.04,-67.25 271.39,-69.54 270.55,-62.59"/>
+</g>
+<!-- module~scientific_colour_maps&#45;&gt;module~colormap_parameters -->
+<g id="program~~example1~~UsesGraph_edge11" class="edge">
+<title>module~scientific_colour_maps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M325.52,-24.02C316.03,-26.76 306.14,-29.82 297,-33 275.15,-40.61 251.24,-50.54 232.22,-58.83"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="230.77,-55.64 223.03,-62.88 233.59,-62.05 230.77,-55.64"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramexample1UsesGraph = svgPanZoom('#programexample1UsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>This example demonstrates how ForImage can be used to import/export PPM files.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~example1~~CallsGraph Pages: 1 -->
+<svg id="programexample1CallsGraph" width="641pt" height="300pt"
+ viewBox="0.00 0.00 641.00 300.06" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~example1~~CallsGraph" class="graph" transform="scale(0.77 0.77) rotate(0) translate(4 385)">
+<title>program~~example1~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-385 827,-385 827,4 -4,4"/>
+<!-- program~example1 -->
+<g id="program~~example1~~CallsGraph_node1" class="node">
+<title>program~example1</title>
+<polygon fill="none" stroke="black" points="65,-181 0,-181 0,-157 65,-157 65,-181"/>
+<text text-anchor="middle" x="32.5" y="-166.6" font-family="Helvetica,sans-Serif" font-size="10.50">example1</text>
+</g>
+<!-- export_pnm -->
+<g id="program~~example1~~CallsGraph_node2" class="node">
+<title>export_pnm</title>
+<polygon fill="#777777" stroke="#777777" points="431.5,-381 355.5,-381 355.5,-357 431.5,-357 431.5,-381"/>
+<text text-anchor="middle" x="393.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">export_pnm</text>
+</g>
+<!-- program~example1&#45;&gt;export_pnm -->
+<g id="program~~example1~~CallsGraph_edge1" class="edge">
+<title>program~example1&#45;&gt;export_pnm</title>
+<path fill="none" stroke="#ff0000" d="M39.98,-181.29C50.49,-200.15 72.91,-236.31 101,-258 175.91,-315.84 284.4,-346.44 345.71,-360.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="344.98,-363.46 355.49,-362.15 346.46,-356.62 344.98,-363.46"/>
+</g>
+<!-- finalize -->
+<g id="program~~example1~~CallsGraph_node3" class="node">
+<title>finalize</title>
+<polygon fill="#777777" stroke="#777777" points="218.5,-202 164.5,-202 164.5,-178 218.5,-178 218.5,-202"/>
+<text text-anchor="middle" x="191.5" y="-187.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">finalize</text>
+</g>
+<!-- program~example1&#45;&gt;finalize -->
+<g id="program~~example1~~CallsGraph_edge2" class="edge">
+<title>program~example1&#45;&gt;finalize</title>
+<path fill="none" stroke="#ff0000" d="M65.27,-173.25C91.06,-176.7 127.42,-181.56 154.33,-185.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.12,-188.66 164.49,-186.52 155.04,-181.73 154.12,-188.66"/>
+</g>
+<!-- import_pnm -->
+<g id="program~~example1~~CallsGraph_node4" class="node">
+<title>import_pnm</title>
+<polygon fill="#777777" stroke="#777777" points="230,-160 153,-160 153,-136 230,-136 230,-160"/>
+<text text-anchor="middle" x="191.5" y="-145.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">import_pnm</text>
+</g>
+<!-- program~example1&#45;&gt;import_pnm -->
+<g id="program~~example1~~CallsGraph_edge3" class="edge">
+<title>program~example1&#45;&gt;import_pnm</title>
+<path fill="none" stroke="#ff0000" d="M65.27,-164.75C87.56,-161.77 117.75,-157.73 142.9,-154.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="143.52,-157.81 152.97,-153.02 142.6,-150.88 143.52,-157.81"/>
+</g>
+<!-- proc~load -->
+<g id="program~~example1~~CallsGraph_node5" class="node">
+<title>proc~load</title>
+<g id="a_program~~example1~~CallsGraph_node5"><a xlink:href="../proc/load.html" xlink:title="Colormap%load">
+<polygon fill="#d9534f" stroke="#d9534f" points="240.5,-108 142.5,-108 142.5,-84 240.5,-84 240.5,-108"/>
+<text text-anchor="middle" x="191.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%load</text>
+</a>
+</g>
+</g>
+<!-- program~example1&#45;&gt;proc~load -->
+<g id="program~~example1~~CallsGraph_edge4" class="edge">
+<title>program~example1&#45;&gt;proc~load</title>
+<path fill="none" stroke="#ff0000" d="M50.65,-156.83C63.95,-147.78 83.06,-135.56 101,-127 113.3,-121.13 127.02,-115.82 139.94,-111.31"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="141.29,-114.55 149.64,-108.02 139.04,-107.92 141.29,-114.55"/>
+</g>
+<!-- proc~write_ppm_colorbar -->
+<g id="program~~example1~~CallsGraph_node6" class="node">
+<title>proc~write_ppm_colorbar</title>
+<g id="a_program~~example1~~CallsGraph_node6"><a xlink:href="../proc/write_ppm_colorbar.html" xlink:title="Colormap%write_ppm_colorbar">
+<polygon fill="#d9534f" stroke="#d9534f" points="282,-249 101,-249 101,-225 282,-225 282,-249"/>
+<text text-anchor="middle" x="191.5" y="-234.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%write_ppm_colorbar</text>
+</a>
+</g>
+</g>
+<!-- program~example1&#45;&gt;proc~write_ppm_colorbar -->
+<g id="program~~example1~~CallsGraph_edge5" class="edge">
+<title>program~example1&#45;&gt;proc~write_ppm_colorbar</title>
+<path fill="none" stroke="#ff0000" d="M49.98,-181.05C63.23,-190.28 82.6,-202.79 101,-211 110.2,-215.1 120.22,-218.75 130.11,-221.92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="129.34,-225.34 139.93,-224.92 131.39,-218.65 129.34,-225.34"/>
+</g>
+<!-- test_colormap -->
+<g id="program~~example1~~CallsGraph_node7" class="node">
+<title>test_colormap</title>
+<polygon fill="#777777" stroke="#777777" points="235.5,-66 147.5,-66 147.5,-42 235.5,-42 235.5,-66"/>
+<text text-anchor="middle" x="191.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_colormap</text>
+</g>
+<!-- program~example1&#45;&gt;test_colormap -->
+<g id="program~~example1~~CallsGraph_edge6" class="edge">
+<title>program~example1&#45;&gt;test_colormap</title>
+<path fill="none" stroke="#ff0000" d="M38.76,-156.75C48.15,-136.41 69.77,-95.88 101,-75 111.78,-67.79 124.74,-63.04 137.41,-59.92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="138.42,-63.28 147.45,-57.75 136.94,-56.44 138.42,-63.28"/>
+</g>
+<!-- proc~check -->
+<g id="program~~example1~~CallsGraph_node9" class="node">
+<title>proc~check</title>
+<g id="a_program~~example1~~CallsGraph_node9"><a xlink:href="../proc/check.html" xlink:title="Colormap%check">
+<polygon fill="#d9534f" stroke="#d9534f" points="446.5,-87 340.5,-87 340.5,-63 446.5,-63 446.5,-87"/>
+<text text-anchor="middle" x="393.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%check</text>
+</a>
+</g>
+</g>
+<!-- proc~load&#45;&gt;proc~check -->
+<g id="program~~example1~~CallsGraph_edge7" class="edge">
+<title>proc~load&#45;&gt;proc~check</title>
+<path fill="none" stroke="#00ffff" d="M240.66,-90.94C267.54,-88.12 301.33,-84.57 330.21,-81.54"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="330.62,-85.02 340.2,-80.49 329.89,-78.06 330.62,-85.02"/>
+</g>
+<!-- proc~reverse -->
+<g id="program~~example1~~CallsGraph_node13" class="node">
+<title>proc~reverse</title>
+<g id="a_program~~example1~~CallsGraph_node13"><a xlink:href="../proc/reverse.html" xlink:title="Colormap%reverse">
+<polygon fill="#d9534f" stroke="#d9534f" points="451,-45 336,-45 336,-21 451,-21 451,-45"/>
+<text text-anchor="middle" x="393.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%reverse</text>
+</a>
+</g>
+</g>
+<!-- proc~load&#45;&gt;proc~reverse -->
+<g id="program~~example1~~CallsGraph_edge8" class="edge">
+<title>proc~load&#45;&gt;proc~reverse</title>
+<path fill="none" stroke="#00ffff" d="M240.69,-87.46C254.3,-84.31 268.95,-80.2 282,-75 299.21,-68.14 300.95,-61.24 318,-54 322.95,-51.9 328.17,-49.94 333.46,-48.14"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="334.56,-51.46 343,-45.05 332.41,-44.8 334.56,-51.46"/>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;export_pnm -->
+<g id="program~~example1~~CallsGraph_edge9" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;export_pnm</title>
+<path fill="none" stroke="#0000ff" d="M208.94,-249.06C227.36,-262.84 257.81,-286.4 282,-309 299.24,-325.1 297.89,-335.67 318,-348 326.33,-353.11 335.94,-357.01 345.43,-359.98"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="344.65,-363.39 355.22,-362.74 346.55,-356.66 344.65,-363.39"/>
+</g>
+<!-- get_format -->
+<g id="program~~example1~~CallsGraph_node8" class="node">
+<title>get_format</title>
+<polygon fill="#777777" stroke="#777777" points="429,-339 358,-339 358,-315 429,-315 429,-339"/>
+<text text-anchor="middle" x="393.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_format</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;get_format -->
+<g id="program~~example1~~CallsGraph_edge10" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;get_format</title>
+<path fill="none" stroke="#0000ff" d="M211.39,-249.18C235.38,-264.22 278.42,-289.79 318,-306 327.51,-309.9 337.99,-313.34 348.01,-316.25"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="347.25,-319.67 357.83,-318.98 349.13,-312.93 347.25,-319.67"/>
+</g>
+<!-- proc~compute_rgb -->
+<g id="program~~example1~~CallsGraph_node10" class="node">
+<title>proc~compute_rgb</title>
+<g id="a_program~~example1~~CallsGraph_node10"><a xlink:href="../proc/compute_rgb.html" xlink:title="Colormap%compute_RGB">
+<polygon fill="#d9534f" stroke="#d9534f" points="469,-297 318,-297 318,-273 469,-273 469,-297"/>
+<text text-anchor="middle" x="393.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%compute_RGB</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~compute_rgb -->
+<g id="program~~example1~~CallsGraph_edge11" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~compute_rgb</title>
+<path fill="none" stroke="#0000ff" d="M242.71,-249.05C269.93,-255.58 303.76,-263.7 332.38,-270.57"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="331.73,-274.01 342.27,-272.94 333.36,-267.21 331.73,-274.01"/>
+</g>
+<!-- proc~get_zmax -->
+<g id="program~~example1~~CallsGraph_node11" class="node">
+<title>proc~get_zmax</title>
+<g id="a_program~~example1~~CallsGraph_node11"><a xlink:href="../proc/get_zmax.html" xlink:title="Colormap%get_zmax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="456.5,-255 330.5,-255 330.5,-231 456.5,-231 456.5,-255"/>
+<text text-anchor="middle" x="393.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_zmax</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~get_zmax -->
+<g id="program~~example1~~CallsGraph_edge12" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~get_zmax</title>
+<path fill="none" stroke="#0000ff" d="M282.26,-239.69C294.92,-240.07 307.8,-240.46 320.07,-240.83"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="320.12,-244.33 330.22,-241.13 320.33,-237.33 320.12,-244.33"/>
+</g>
+<!-- proc~get_zmin -->
+<g id="program~~example1~~CallsGraph_node12" class="node">
+<title>proc~get_zmin</title>
+<g id="a_program~~example1~~CallsGraph_node12"><a xlink:href="../proc/get_zmin.html" xlink:title="Colormap%get_zmin">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="455,-213 332,-213 332,-189 455,-189 455,-213"/>
+<text text-anchor="middle" x="393.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_zmin</text>
+</a>
+</g>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;proc~get_zmin -->
+<g id="program~~example1~~CallsGraph_edge13" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;proc~get_zmin</title>
+<path fill="none" stroke="#0000ff" d="M259.38,-224.96C279.39,-221.36 301.39,-217.4 321.65,-213.75"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="322.53,-217.15 331.75,-211.93 321.29,-210.26 322.53,-217.15"/>
+</g>
+<!-- set_format -->
+<g id="program~~example1~~CallsGraph_node14" class="node">
+<title>set_format</title>
+<polygon fill="#777777" stroke="#777777" points="428.5,-171 358.5,-171 358.5,-147 428.5,-147 428.5,-171"/>
+<text text-anchor="middle" x="393.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_format</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;set_format -->
+<g id="program~~example1~~CallsGraph_edge14" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;set_format</title>
+<path fill="none" stroke="#0000ff" d="M247.93,-224.91C259.55,-221.29 271.47,-216.71 282,-211 300.56,-200.94 299.4,-189.99 318,-180 327.42,-174.94 338.18,-171 348.54,-167.97"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="349.55,-171.32 358.29,-165.33 347.73,-164.56 349.55,-171.32"/>
+</g>
+<!-- set_pnm -->
+<g id="program~~example1~~CallsGraph_node15" class="node">
+<title>set_pnm</title>
+<polygon fill="#777777" stroke="#777777" points="422.5,-129 364.5,-129 364.5,-105 422.5,-105 422.5,-129"/>
+<text text-anchor="middle" x="393.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_pnm</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;set_pnm -->
+<g id="program~~example1~~CallsGraph_edge15" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;set_pnm</title>
+<path fill="none" stroke="#0000ff" d="M258.31,-224.85C266.87,-221.34 275.06,-216.82 282,-211 309.72,-187.76 290.19,-161.13 318,-138 328.27,-129.46 341.8,-124.38 354.51,-121.37"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="355.34,-124.78 364.45,-119.37 353.95,-117.91 355.34,-124.78"/>
+</g>
+<!-- proc~get_levels~2 -->
+<g id="program~~example1~~CallsGraph_node16" class="node">
+<title>proc~get_levels~2</title>
+<g id="a_program~~example1~~CallsGraph_node16"><a xlink:href="../proc/get_levels~2.html" xlink:title="Colormaps_info%get_levels">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="680,-150 521,-150 521,-126 680,-126 680,-150"/>
+<text text-anchor="middle" x="600.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_levels</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_levels~2 -->
+<g id="program~~example1~~CallsGraph_edge16" class="edge">
+<title>proc~check&#45;&gt;proc~get_levels~2</title>
+<path fill="none" stroke="#ffbf00" d="M444,-87.05C452.47,-89.65 461.08,-92.64 469,-96 486.05,-103.24 487.75,-110.24 505,-117 510.85,-119.29 517.01,-121.36 523.27,-123.23"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="522.56,-126.67 533.14,-125.99 524.45,-119.93 522.56,-126.67"/>
+</g>
+<!-- proc~get_name~2 -->
+<g id="program~~example1~~CallsGraph_node17" class="node">
+<title>proc~get_name~2</title>
+<g id="a_program~~example1~~CallsGraph_node17"><a xlink:href="../proc/get_name~2.html" xlink:title="Colormaps_info%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="680,-108 521,-108 521,-84 680,-84 680,-108"/>
+<text text-anchor="middle" x="600.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_name</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_name~2 -->
+<g id="program~~example1~~CallsGraph_edge17" class="edge">
+<title>proc~check&#45;&gt;proc~get_name~2</title>
+<path fill="none" stroke="#ffbf00" d="M446.76,-80.35C466.31,-82.36 489.09,-84.69 511,-86.93"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="510.69,-90.42 520.99,-87.96 511.4,-83.46 510.69,-90.42"/>
+</g>
+<!-- proc~get_ncolormaps -->
+<g id="program~~example1~~CallsGraph_node18" class="node">
+<title>proc~get_ncolormaps</title>
+<g id="a_program~~example1~~CallsGraph_node18"><a xlink:href="../proc/get_ncolormaps.html" xlink:title="Colormaps_info%get_ncolormaps">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="696,-66 505,-66 505,-42 696,-42 696,-66"/>
+<text text-anchor="middle" x="600.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%get_ncolormaps</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_ncolormaps -->
+<g id="program~~example1~~CallsGraph_edge18" class="edge">
+<title>proc~check&#45;&gt;proc~get_ncolormaps</title>
+<path fill="none" stroke="#ffbf00" d="M446.76,-69.65C461.4,-68.15 477.85,-66.46 494.39,-64.77"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="495.1,-68.21 504.69,-63.71 494.39,-61.25 495.1,-68.21"/>
+</g>
+<!-- proc~set_all -->
+<g id="program~~example1~~CallsGraph_node20" class="node">
+<title>proc~set_all</title>
+<g id="a_program~~example1~~CallsGraph_node20"><a xlink:href="../proc/set_all.html" xlink:title="Colormaps_info%set_all">
+<polygon fill="#d9534f" stroke="#d9534f" points="670,-24 531,-24 531,0 670,0 670,-24"/>
+<text text-anchor="middle" x="600.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormaps_info%set_all</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~set_all -->
+<g id="program~~example1~~CallsGraph_edge19" class="edge">
+<title>proc~check&#45;&gt;proc~set_all</title>
+<path fill="none" stroke="#ffbf00" d="M444,-62.95C452.47,-60.35 461.08,-57.36 469,-54 486.05,-46.76 487.75,-39.76 505,-33 510.85,-30.71 517.01,-28.64 523.27,-26.77"/>
+<polygon fill="#ffbf00" stroke="#ffbf00" points="524.45,-30.07 533.14,-24.01 522.56,-23.33 524.45,-30.07"/>
+</g>
+<!-- proc~get_rgb -->
+<g id="program~~example1~~CallsGraph_node19" class="node">
+<title>proc~get_rgb</title>
+<g id="a_program~~example1~~CallsGraph_node19"><a xlink:href="../proc/get_rgb.html" xlink:title="Colormap%get_RGB">
+<polygon fill="#d9534f" stroke="#d9534f" points="661,-297 540,-297 540,-273 661,-273 661,-297"/>
+<text text-anchor="middle" x="600.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%get_RGB</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_rgb&#45;&gt;proc~get_rgb -->
+<g id="program~~example1~~CallsGraph_edge20" class="edge">
+<title>proc~compute_rgb&#45;&gt;proc~get_rgb</title>
+<path fill="none" stroke="#7fff00" d="M469.09,-285C488.88,-285 510.17,-285 529.7,-285"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="529.73,-288.5 539.73,-285 529.73,-281.5 529.73,-288.5"/>
+</g>
+<!-- proc~set_info -->
+<g id="program~~example1~~CallsGraph_node21" class="node">
+<title>proc~set_info</title>
+<g id="a_program~~example1~~CallsGraph_node21"><a xlink:href="../proc/set_info.html" xlink:title="table%set_info">
+<polygon fill="#d9534f" stroke="#d9534f" points="823,-24 732,-24 732,0 823,0 823,-24"/>
+<text text-anchor="middle" x="777.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">table%set_info</text>
+</a>
+</g>
+</g>
+<!-- proc~set_all&#45;&gt;proc~set_info -->
+<g id="program~~example1~~CallsGraph_edge21" class="edge">
+<title>proc~set_all&#45;&gt;proc~set_info</title>
+<path fill="none" stroke="#cc00ff" d="M670.16,-12C687.21,-12 705.25,-12 721.55,-12"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="721.97,-15.5 731.97,-12 721.97,-8.5 721.97,-15.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramexample1CallsGraph = svgPanZoom('#programexample1CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-custom_cmap~3"></span>
+              type(<a href='../type/colormap.html'>Colormap</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>custom_cmap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex1_colorbar"></span>
+              type(format_pnm)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ex1_colorbar</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex1_colormap"></span>
+              type(format_pnm)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ex1_colormap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">example1</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forcolormap</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forcolormap_utils</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">test_colormap</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forimage</span>
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    type</span><span class="p">(</span><span class="n">Colormap</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">custom_cmap</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">format_pnm</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ex1_colormap</span><span class="p">,</span><span class="w"> </span><span class="n">ex1_colorbar</span>
+
+<span class="w">    </span><span class="c">! Create ppm files</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;test_map_to_load.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="n">colorbar</span><span class="p">(</span><span class="s1">&#39;a_loaded_colormap_ascii_test&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">test_colormap</span><span class="p">(</span><span class="n">custom_cmap</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;a_loaded_colormap_ascii_colorbar&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">custom_cmap</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c">! Import ascii ppm files</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colormap</span><span class="p">%</span><span class="n">import_pnm</span><span class="p">(</span><span class="s1">&#39;a_loaded_colormap_ascii_test&#39;</span><span class="p">,</span><span class="s1">&#39;ppm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colorbar</span><span class="p">%</span><span class="n">import_pnm</span><span class="p">(</span><span class="s1">&#39;a_loaded_colormap_ascii_colorbar&#39;</span><span class="p">,</span><span class="s1">&#39;ppm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Change colormap and colorbar colors</span>
+<span class="w">    </span><span class="n">ex1_colormap</span><span class="p">%</span><span class="n">pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">ex1_colormap</span><span class="p">%</span><span class="n">pixels</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.6</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ex1_colorbar</span><span class="p">%</span><span class="n">pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">ex1_colorbar</span><span class="p">%</span><span class="n">pixels</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.6</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Export binary ppm files</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colormap</span><span class="p">%</span><span class="n">export_pnm</span><span class="p">(</span><span class="s1">&#39;a_loaded_colormap_binary_test_m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colorbar</span><span class="p">%</span><span class="n">export_pnm</span><span class="p">(</span><span class="s1">&#39;a_loaded_colormap_binary_colorbar_m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Deallocate</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colormap</span><span class="p">%</span><span class="n">finalize</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">ex1_colorbar</span><span class="p">%</span><span class="n">finalize</span><span class="p">()</span>
+
+<span class="k">end program </span><span class="n">example1</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForColormap
+ was developed by Vincent Magnin,
+Seyed Ali Ghasemi<br>              &copy; 2023-2024 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-12-12T18:14:34.250879+0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

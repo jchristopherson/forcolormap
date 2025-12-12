@@ -1,0 +1,551 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A Fortran library for colormaps">
+    <meta name="author" content="Vincent Magnin,
+Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Modules &ndash; ForColormap
+</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForColormap <small>0.9.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Modules</h1>
+			 <table class="table">
+			 <thead><tr><th>Module</th><th>Source File</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr class="active">
+                 <td><a href='../module/colormap_parameters.html'>colormap_parameters</a></td>
+                 <td><a href='../sourcefile/colormap_parameters.f90.html'>colormap_parameters.f90</a></td>
+                 <td><p>Global parameters of ForColormap.</p></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/forcolormap.html'>forcolormap</a></td>
+                 <td><a href='../sourcefile/colormap_class.f90.html'>colormap_class.f90</a></td>
+                 <td><p>The Colormap class and the <code>colormaps_list</code>.</p></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/forcolormap_info.html'>forcolormap_info</a></td>
+                 <td><a href='../sourcefile/colormaps_info.f90.html'>colormaps_info.f90</a></td>
+                 <td><p>The Colormaps_info class offers information about each colormap.</p></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/matplotlib_colormaps.html'>matplotlib_colormaps</a></td>
+                 <td><a href='../sourcefile/matplotlib_colormaps.f90.html'>matplotlib_colormaps.f90</a></td>
+                 <td><p>This module contains a few matplotlib colormaps: "magma", "inferno",
+"plasma", "viridis".</p></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/miscellaneous_colormaps.html'>miscellaneous_colormaps</a></td>
+                 <td><a href='../sourcefile/miscellaneous_colormaps.f90.html'>miscellaneous_colormaps.f90</a></td>
+                 <td><p>This module contains miscellaneous colormaps, especially black body andf cubehelix.</p></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/scientific_colour_maps.html'>scientific_colour_maps</a></td>
+                 <td><a href='../sourcefile/scientific_colour_maps.f90.html'>scientific_colour_maps.f90</a></td>
+                 <td><p>This module contains the 222 colormaps of the <em>Scientific colour maps</em>
+collection v8.0.1 by Fabio Crameri.</p></td>
+               </tr>
+<!---->			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~graph~~ModuleGraph Pages: 1 -->
+<svg id="modulegraphModuleGraph" width="815pt" height="322pt"
+ viewBox="0.00 0.00 815.00 322.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 318)">
+<title>module~~graph~~ModuleGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-318 811,-318 811,4 -4,4"/>
+<!-- module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_node1" class="node">
+<title>module~colormap_parameters</title>
+<g id="a_module~~graph~~ModuleGraph_node1"><a xlink:href="../module/colormap_parameters.html" xlink:title="colormap_parameters">
+<polygon fill="#337ab7" stroke="#337ab7" points="261,-212 130,-212 130,-188 261,-188 261,-212"/>
+<text text-anchor="middle" x="195.5" y="-197.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">colormap_parameters</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_node20" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-212 0,-212 0,-188 94,-188 94,-212"/>
+<text text-anchor="middle" x="47" y="-197.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~colormap_parameters&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge1" class="edge">
+<title>module~colormap_parameters&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.82,-200C121.41,-200 112.85,-200 104.59,-200"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.32,-196.5 94.32,-200 104.32,-203.5 104.32,-196.5"/>
+</g>
+<!-- module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_node2" class="node">
+<title>module~forcolormap</title>
+<g id="a_module~~graph~~ModuleGraph_node2"><a xlink:href="../module/forcolormap.html" xlink:title="forcolormap">
+<polygon fill="#337ab7" stroke="#337ab7" points="576,-234 498,-234 498,-210 576,-210 576,-234"/>
+<text text-anchor="middle" x="537" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge2" class="edge">
+<title>module~forcolormap&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#ff5900" stroke-dasharray="5,2" d="M497.71,-219.52C443.01,-215.97 341.35,-209.39 271.38,-204.85"/>
+<polygon fill="#ff5900" stroke="#ff5900" points="271.5,-201.35 261.3,-204.2 271.05,-208.34 271.5,-201.35"/>
+</g>
+<!-- module~matplotlib_colormaps -->
+<g id="module~~graph~~ModuleGraph_node4" class="node">
+<title>module~matplotlib_colormaps</title>
+<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href="../module/matplotlib_colormaps.html" xlink:title="matplotlib_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="436.5,-192 308.5,-192 308.5,-168 436.5,-168 436.5,-192"/>
+<text text-anchor="middle" x="372.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">matplotlib_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~matplotlib_colormaps -->
+<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<title>module~forcolormap&#45;&gt;module~matplotlib_colormaps</title>
+<path fill="none" stroke="#ff5900" stroke-dasharray="5,2" d="M497.9,-212.15C477.64,-206.91 452.32,-200.37 429.83,-194.56"/>
+<polygon fill="#ff5900" stroke="#ff5900" points="430.62,-191.15 420.06,-192.03 428.87,-197.92 430.62,-191.15"/>
+</g>
+<!-- module~miscellaneous_colormaps -->
+<g id="module~~graph~~ModuleGraph_node5" class="node">
+<title>module~miscellaneous_colormaps</title>
+<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href="../module/miscellaneous_colormaps.html" xlink:title="miscellaneous_colormaps">
+<polygon fill="#337ab7" stroke="#337ab7" points="448,-314 297,-314 297,-290 448,-290 448,-314"/>
+<text text-anchor="middle" x="372.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">miscellaneous_colormaps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~miscellaneous_colormaps -->
+<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<title>module~forcolormap&#45;&gt;module~miscellaneous_colormaps</title>
+<path fill="none" stroke="#ff5900" stroke-dasharray="5,2" d="M521.3,-234C504.49,-247.19 475.72,-268.2 448,-281 443.58,-283.04 438.92,-284.92 434.18,-286.65"/>
+<polygon fill="#ff5900" stroke="#ff5900" points="432.71,-283.46 424.37,-289.99 434.97,-290.08 432.71,-283.46"/>
+</g>
+<!-- module~scientific_colour_maps -->
+<g id="module~~graph~~ModuleGraph_node6" class="node">
+<title>module~scientific_colour_maps</title>
+<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href="../module/scientific_colour_maps.html" xlink:title="scientific_colour_maps">
+<polygon fill="#337ab7" stroke="#337ab7" points="439,-272 306,-272 306,-248 439,-248 439,-272"/>
+<text text-anchor="middle" x="372.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">scientific_colour_maps</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap&#45;&gt;module~scientific_colour_maps -->
+<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<title>module~forcolormap&#45;&gt;module~scientific_colour_maps</title>
+<path fill="none" stroke="#ff5900" stroke-dasharray="5,2" d="M497.9,-230.91C479.11,-235.3 455.99,-240.71 434.79,-245.67"/>
+<polygon fill="#ff5900" stroke="#ff5900" points="433.84,-242.3 424.9,-247.98 435.43,-249.11 433.84,-242.3"/>
+</g>
+<!-- module~forcolormap_info -->
+<g id="module~~graph~~ModuleGraph_node3" class="node">
+<title>module~forcolormap_info</title>
+<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href="../module/forcolormap_info.html" xlink:title="forcolormap_info">
+<polygon fill="#337ab7" stroke="#337ab7" points="424,-150 321,-150 321,-126 424,-126 424,-150"/>
+<text text-anchor="middle" x="372.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap_info</text>
+</a>
+</g>
+</g>
+<!-- module~forcolormap_info&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<title>module~forcolormap_info&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M325.55,-150.08C316.05,-152.82 306.15,-155.86 297,-159 275.6,-166.35 252.17,-175.83 233.32,-183.82"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="231.73,-180.69 223.91,-187.84 234.48,-187.13 231.73,-180.69"/>
+</g>
+<!-- module~matplotlib_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<title>module~matplotlib_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#f0ff00" stroke-dasharray="5,2" d="M308.32,-187.22C296.31,-188.59 283.64,-190.04 271.31,-191.45"/>
+<polygon fill="#f0ff00" stroke="#f0ff00" points="270.6,-188.01 261.06,-192.62 271.39,-194.96 270.6,-188.01"/>
+</g>
+<!-- module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<title>module~miscellaneous_colormaps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#96ff00" stroke-dasharray="5,2" d="M318.38,-289.9C311.01,-287.4 303.69,-284.45 297,-281 265.5,-264.74 234.55,-237.64 215.5,-219.31"/>
+<polygon fill="#96ff00" stroke="#96ff00" points="217.93,-216.79 208.34,-212.29 213.03,-221.79 217.93,-216.79"/>
+</g>
+<!-- module~scientific_colour_maps&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<title>module~scientific_colour_maps&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#3cff00" stroke-dasharray="5,2" d="M336.09,-247.86C308.72,-238.47 270.66,-225.43 241.2,-215.32"/>
+<polygon fill="#3cff00" stroke="#3cff00" points="242.16,-211.95 231.56,-212.02 239.89,-218.58 242.16,-211.95"/>
+</g>
+<!-- proc~check -->
+<g id="module~~graph~~ModuleGraph_node7" class="node">
+<title>proc~check</title>
+<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href="../proc/check.html" xlink:title="Colormap%check">
+<polygon fill="#d9534f" stroke="#d9534f" points="590,-192 484,-192 484,-168 590,-168 590,-192"/>
+<text text-anchor="middle" x="537" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%check</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;module~forcolormap_info -->
+<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<title>proc~check&#45;&gt;module~forcolormap_info</title>
+<path fill="none" stroke="#00ff1e" stroke-dasharray="5,2" d="M489.43,-167.96C470.91,-163.18 449.41,-157.62 430.01,-152.6"/>
+<polygon fill="#00ff1e" stroke="#00ff1e" points="430.63,-149.15 420.07,-150.04 428.88,-155.93 430.63,-149.15"/>
+</g>
+<!-- proc~error -->
+<g id="module~~graph~~ModuleGraph_node8" class="node">
+<title>proc~error</title>
+<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href="../proc/error.html" xlink:title="error">
+<polygon fill="#d9534f" stroke="#d9534f" points="399.5,-108 345.5,-108 345.5,-84 399.5,-84 399.5,-108"/>
+<text text-anchor="middle" x="372.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">error</text>
+</a>
+</g>
+</g>
+<!-- proc~error&#45;&gt;module~colormap_parameters -->
+<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<title>proc~error&#45;&gt;module~colormap_parameters</title>
+<path fill="none" stroke="#00ff78" stroke-dasharray="5,2" d="M345.33,-100.59C330.57,-103.85 312.12,-109.08 297,-117 265.08,-133.72 233.98,-161.76 215.04,-180.56"/>
+<polygon fill="#00ff78" stroke="#00ff78" points="212.23,-178.42 207.69,-187.99 217.21,-183.34 212.23,-178.42"/>
+</g>
+<!-- proc~write_ppm_colorbar -->
+<g id="module~~graph~~ModuleGraph_node9" class="node">
+<title>proc~write_ppm_colorbar</title>
+<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href="../proc/write_ppm_colorbar.html" xlink:title="Colormap%write_ppm_colorbar">
+<polygon fill="#d9534f" stroke="#d9534f" points="807,-24 626,-24 626,0 807,0 807,-24"/>
+<text text-anchor="middle" x="716.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Colormap%write_ppm_colorbar</text>
+</a>
+</g>
+</g>
+<!-- forimage -->
+<g id="module~~graph~~ModuleGraph_node19" class="node">
+<title>forimage</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="567.5,-24 506.5,-24 506.5,0 567.5,0 567.5,-24"/>
+<text text-anchor="middle" x="537" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forimage</text>
+</g>
+<!-- proc~write_ppm_colorbar&#45;&gt;forimage -->
+<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<title>proc~write_ppm_colorbar&#45;&gt;forimage</title>
+<path fill="none" stroke="#00ffd1" stroke-dasharray="5,2" d="M625.97,-12C609.22,-12 592.5,-12 578.21,-12"/>
+<polygon fill="#00ffd1" stroke="#00ffd1" points="577.8,-8.5 567.8,-12 577.8,-15.5 577.8,-8.5"/>
+</g>
+<!-- program~colormaps_list -->
+<g id="module~~graph~~ModuleGraph_node10" class="node">
+<title>program~colormaps_list</title>
+<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href="../program/colormaps_list.html" xlink:title="colormaps_list">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="581.5,-150 492.5,-150 492.5,-126 581.5,-126 581.5,-150"/>
+<text text-anchor="middle" x="537" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">colormaps_list</text>
+</a>
+</g>
+</g>
+<!-- program~colormaps_list&#45;&gt;module~forcolormap_info -->
+<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<title>program~colormaps_list&#45;&gt;module~forcolormap_info</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M492.45,-138C474.6,-138 453.63,-138 434.31,-138"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="434.08,-134.5 424.08,-138 434.08,-141.5 434.08,-134.5"/>
+</g>
+<!-- program~create -->
+<g id="module~~graph~~ModuleGraph_node11" class="node">
+<title>program~create</title>
+<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href="../program/create.html" xlink:title="create">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="743.5,-276 689.5,-276 689.5,-252 743.5,-252 743.5,-276"/>
+<text text-anchor="middle" x="716.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">create</text>
+</a>
+</g>
+</g>
+<!-- program~create&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<title>program~create&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#0078ff" stroke-dasharray="5,2" d="M689.26,-257.87C671.41,-253.7 647.28,-248.04 626,-243 613.1,-239.95 599.13,-236.62 586.21,-233.54"/>
+<polygon fill="#0078ff" stroke="#0078ff" points="586.65,-230.05 576.11,-231.13 585.02,-236.85 586.65,-230.05"/>
+</g>
+<!-- program~demo -->
+<g id="module~~graph~~ModuleGraph_node12" class="node">
+<title>program~demo</title>
+<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href="../program/demo.html" xlink:title="demo">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="743.5,-108 689.5,-108 689.5,-84 743.5,-84 743.5,-108"/>
+<text text-anchor="middle" x="716.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo</text>
+</a>
+</g>
+</g>
+<!-- program~demo&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<title>program~demo&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M689.21,-96.06C669.72,-97.43 643.6,-102.23 626,-117 594.89,-143.11 619.02,-172.58 590,-201 588.39,-202.58 586.64,-204.04 584.8,-205.4"/>
+<polygon fill="#001dff" stroke="#001dff" points="582.89,-202.46 576.23,-210.7 586.57,-208.42 582.89,-202.46"/>
+</g>
+<!-- forcolormap_utils -->
+<g id="module~~graph~~ModuleGraph_node18" class="node">
+<title>forcolormap_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="589.5,-66 484.5,-66 484.5,-42 589.5,-42 589.5,-66"/>
+<text text-anchor="middle" x="537" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forcolormap_utils</text>
+</g>
+<!-- program~demo&#45;&gt;forcolormap_utils -->
+<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<title>program~demo&#45;&gt;forcolormap_utils</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M689.26,-89.87C671.41,-85.7 647.28,-80.04 626,-75 617.02,-72.88 607.53,-70.62 598.23,-68.41"/>
+<polygon fill="#001dff" stroke="#001dff" points="598.79,-64.94 588.25,-66.03 597.17,-71.75 598.79,-64.94"/>
+</g>
+<!-- program~demo_reverse -->
+<g id="module~~graph~~ModuleGraph_node13" class="node">
+<title>program~demo_reverse</title>
+<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href="../program/demo_reverse.html" xlink:title="demo_reverse">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="760.5,-150 672.5,-150 672.5,-126 760.5,-126 760.5,-150"/>
+<text text-anchor="middle" x="716.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_reverse</text>
+</a>
+</g>
+</g>
+<!-- program~demo_reverse&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<title>program~demo_reverse&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#3c00ff" stroke-dasharray="5,2" d="M672.4,-142.47C656.94,-145.49 639.91,-150.54 626,-159 604.99,-171.77 609.97,-186.66 590,-201 587.92,-202.49 585.73,-203.9 583.46,-205.22"/>
+<polygon fill="#3c00ff" stroke="#3c00ff" points="581.69,-202.2 574.43,-209.91 584.91,-208.41 581.69,-202.2"/>
+</g>
+<!-- program~demo_reverse&#45;&gt;forcolormap_utils -->
+<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<title>program~demo_reverse&#45;&gt;forcolormap_utils</title>
+<path fill="none" stroke="#3c00ff" stroke-dasharray="5,2" d="M672.4,-133.53C656.94,-130.51 639.91,-125.46 626,-117 604.99,-104.23 609.97,-89.34 590,-75 587.92,-73.51 585.73,-72.1 583.46,-70.78"/>
+<polygon fill="#3c00ff" stroke="#3c00ff" points="584.91,-67.59 574.43,-66.09 581.69,-73.8 584.91,-67.59"/>
+</g>
+<!-- program~example1 -->
+<g id="module~~graph~~ModuleGraph_node14" class="node">
+<title>program~example1</title>
+<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href="../program/example1.html" xlink:title="example1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="749,-66 684,-66 684,-42 749,-42 749,-66"/>
+<text text-anchor="middle" x="716.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example1</text>
+</a>
+</g>
+</g>
+<!-- program~example1&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<title>program~example1&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#9500ff" stroke-dasharray="5,2" d="M683.58,-53.78C664.57,-55.33 641.25,-60.46 626,-75 583.84,-115.19 628.95,-157.7 590,-201 588.44,-202.73 586.71,-204.33 584.87,-205.79"/>
+<polygon fill="#9500ff" stroke="#9500ff" points="582.66,-203.05 576.16,-211.42 586.46,-208.93 582.66,-203.05"/>
+</g>
+<!-- program~example1&#45;&gt;forcolormap_utils -->
+<g id="module~~graph~~ModuleGraph_edge19" class="edge">
+<title>program~example1&#45;&gt;forcolormap_utils</title>
+<path fill="none" stroke="#9500ff" stroke-dasharray="5,2" d="M683.77,-54C660.5,-54 628.16,-54 599.86,-54"/>
+<polygon fill="#9500ff" stroke="#9500ff" points="599.63,-50.5 589.63,-54 599.63,-57.5 599.63,-50.5"/>
+</g>
+<!-- program~example1&#45;&gt;forimage -->
+<g id="module~~graph~~ModuleGraph_edge20" class="edge">
+<title>program~example1&#45;&gt;forimage</title>
+<path fill="none" stroke="#9500ff" stroke-dasharray="5,2" d="M683.6,-46.55C666.51,-42.54 645.1,-37.52 626,-33 610.23,-29.27 592.87,-25.13 577.77,-21.53"/>
+<polygon fill="#9500ff" stroke="#9500ff" points="578.27,-18.04 567.73,-19.12 576.64,-24.85 578.27,-18.04"/>
+</g>
+<!-- program~extract -->
+<g id="module~~graph~~ModuleGraph_node15" class="node">
+<title>program~extract</title>
+<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href="../program/extract.html" xlink:title="extract">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="743.5,-234 689.5,-234 689.5,-210 743.5,-210 743.5,-234"/>
+<text text-anchor="middle" x="716.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">extract</text>
+</a>
+</g>
+</g>
+<!-- program~extract&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<title>program~extract&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M689.31,-222C662.33,-222 619.67,-222 586.51,-222"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="586.11,-218.5 576.11,-222 586.11,-225.5 586.11,-218.5"/>
+</g>
+<!-- program~modify -->
+<g id="module~~graph~~ModuleGraph_node16" class="node">
+<title>program~modify</title>
+<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href="../program/modify.html" xlink:title="modify">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="743.5,-192 689.5,-192 689.5,-168 743.5,-168 743.5,-192"/>
+<text text-anchor="middle" x="716.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">modify</text>
+</a>
+</g>
+</g>
+<!-- program~modify&#45;&gt;module~forcolormap -->
+<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<title>program~modify&#45;&gt;module~forcolormap</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M689.26,-186.13C671.41,-190.3 647.28,-195.96 626,-201 613.1,-204.05 599.13,-207.38 586.21,-210.46"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="585.02,-207.15 576.11,-212.87 586.65,-213.95 585.02,-207.15"/>
+</g>
+<!-- program~write_info -->
+<g id="module~~graph~~ModuleGraph_node17" class="node">
+<title>program~write_info</title>
+<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href="../program/write_info.html" xlink:title="write_info">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="569,-108 505,-108 505,-84 569,-84 569,-108"/>
+<text text-anchor="middle" x="537" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_info</text>
+</a>
+</g>
+</g>
+<!-- program~write_info&#45;&gt;module~forcolormap_info -->
+<g id="module~~graph~~ModuleGraph_edge24" class="edge">
+<title>program~write_info&#45;&gt;module~forcolormap_info</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M504.67,-104.1C483.5,-109.57 454.95,-116.95 429.89,-123.43"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="428.93,-120.06 420.12,-125.95 430.68,-126.84 428.93,-120.06"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#ModuleGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="ModuleGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForColormap
+ was developed by Vincent Magnin,
+Seyed Ali Ghasemi<br>              &copy; 2023-2024 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-12-12T18:14:34.250879+0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
